@@ -1,0 +1,90 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row fxLayout="row">
+        <span>{{dialogData.action}} Product</span>
+        <span class="spacer"></span>
+        <button class="mat-dialog-close" mat-icon-button mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="userForm">
+        <div fxFlex fxLayout="row wrap">
+            <mat-form-field fxFlex>
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="firstName" required>
+                <mat-error *ngIf="userForm.get('firstName')?.touched && userForm.get('firstName')?.invalid">
+                    <span *ngIf="userForm.get('firstName')?.errors?.['required']"> This field is required</span>
+                    <span *ngIf="userForm.get('firstName')?.errors?.['pattern']">Invalid name</span>
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxFlex fxLayout="row wrap">
+            <mat-form-field fxFlex>
+                <mat-label>Price</mat-label>
+                <input matInput formControlName="lastName" required>
+                <mat-error *ngIf="userForm.get('lastName')?.touched && userForm.get('lastName')?.invalid">
+                    <span *ngIf="userForm.get('lastName')?.errors?.['required']"> This field is required</span>
+                    <span *ngIf="userForm.get('lastName')?.errors?.['pattern']">Invalid price</span>
+                </mat-error>
+            </mat-form-field>
+
+   
+        </div>
+
+
+        <div fxFlex fxLayout="row wrap">
+            <mat-form-field fxFlex>
+                <mat-label>Street</mat-label>
+                <input matInput formControlName="street" required>
+                <mat-error *ngIf="userForm.get('street')?.touched && userForm.get('street')?.invalid">
+                    <span *ngIf="userForm.get('street')?.errors?.['required']"> This field is required</span>
+                    <span *ngIf="userForm.get('street')?.errors?.['pattern']">Invalid name</span>
+                </mat-error>
+            </mat-form-field>
+            </div>
+            <div fxFlex fxLayout="row wrap">
+                <mat-form-field fxFlex>
+                    <mat-label>City</mat-label>
+                    <input matInput formControlName="city" required>
+                    <mat-error *ngIf="userForm.get('city')?.touched && userForm.get('city')?.invalid">
+                        <span *ngIf="userForm.get('city')?.errors?.['required']"> This field is required</span>
+                        <span *ngIf="userForm.get('city')?.errors?.['pattern']">Invalid name</span>
+                    </mat-error>
+                </mat-form-field>
+        </div>
+
+        <div fxFlex fxLayout="row wrap">
+            <mat-form-field fxFlex>
+                <mat-label>City</mat-label>
+                <input matInput formControlName="state" required>
+                <mat-error *ngIf="userForm.get('state')?.touched && userForm.get('state')?.invalid">
+                    <span *ngIf="userForm.get('state')?.errors?.['required']"> This field is required</span>
+                    <span *ngIf="userForm.get('state')?.errors?.['pattern']">Invalid name</span>
+                </mat-error>
+            </mat-form-field>
+    </div>
+
+    <div fxFlex fxLayout="row wrap">
+        <mat-form-field fxFlex>
+            <mat-label>City</mat-label>
+            <input matInput formControlName="country" required>
+            <mat-error *ngIf="userForm.get('country')?.touched && userForm.get('country')?.invalid">
+                <span *ngIf="userForm.get('country')?.errors?.['required']"> This field is required</span>
+                <span *ngIf="userForm.get('country')?.errors?.['pattern']">Invalid name</span>
+            </mat-error>
+        </mat-form-field>
+</div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" type="submit" (click)="handleSubmit()" [disabled]="!(userForm.valid && userForm.dirty)">
+        <mat-icon>save</mat-icon>{{action}}
+    </button>
+    <button mat-raised-button color="warn" mat-dialog-close> <mat-icon>cancel</mat-icon>Close</button>
+</mat-dialog-actions>
+n
